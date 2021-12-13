@@ -7,7 +7,7 @@ import Register from './pages/Register';
 
 function App() {
   return (
-    <div className="flex flex-col bg-gray-50 h-screen">
+    <div className="flex flex-col bg-gray-50">
       <Header />
       <main className="flex-1 max-w-7xl p-4 sm:px-6 md:px-8">
         <Routes>
