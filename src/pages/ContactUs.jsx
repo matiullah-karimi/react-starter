@@ -19,21 +19,21 @@ const ContactUs = () => (
             </div>
             <div className="flex flex-col w-full p-8 bg-white shadow-md">
                 <h4 className="text-lg font-semibold text-gray-800 mx-2">Send us a message</h4>
-                <div className="flex-col sm:flex mt-6">
+                <div className="flex-col sm:flex sm:flex-row mt-2 sm:mt-6">
                     <Input type="text" placeholder="First name"/>
                     <Input type="text" placeholder="Last name"/>
                 </div>
 
-                <div className="flex-col sm:flex mt-6">
+                <div className="flex-col sm:flex sm:flex-row mt-2 sm:mt-6">
                     <Input type="email" placeholder="Email"/>
                     <Input type="text" placeholder="Phone"/>
                 </div>
 
-                <div className="flex-col sm:flex mt-6">
+                <div className="flex-col sm:flex sm:flex-row mt-2 sm:mt-6">
                     <Input type="text" placeholder="Subject"/>
                 </div>
 
-                <div className="flex-col sm:flex mt-6">
+                <div className="flex-col sm:flex sm:flex-row mt-2 sm:mt-6">
                     <Input type="text" placeholder="Message" className="h-32"/>
                 </div>
 
