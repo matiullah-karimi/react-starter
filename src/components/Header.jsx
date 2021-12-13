@@ -53,9 +53,7 @@ export default function Header() {
                             >
                         </li>
                         <li>
-                            <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                            >Customers</a
-                            >
+                            <Link className="md:p-4 py-2 block hover:text-purple-400" to="/contact">Contact</Link>
                         </li>
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-purple-400" to="/register">Signup</Link>
