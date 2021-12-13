@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState(true);
@@ -7,20 +8,19 @@ export default function Header() {
         <header className="bg-gray-800">
             <nav
                 className="
-          flex flex-wrap
-          items-center
-          justify-between
-          w-full
-          py-4
-          md:py-0
-          px-4
-          text-lg
-          bg-gray-800"
-            >
+                    flex flex-wrap
+                    items-center
+                    justify-between
+                    w-full
+                    py-4
+                    md:py-0
+                    px-4
+                    text-lg
+                    bg-gray-800">
                 <div>
-                    <a href="#" className="text-gray-200">
+                    <Link to="/" className="text-gray-200">
                         React Starter Project
-                    </a>
+                    </Link>
                 </div>
 
                 <svg
@@ -58,16 +58,10 @@ export default function Header() {
                             >
                         </li>
                         <li>
-                            <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                            >Blog</a
-                            >
+                            <Link className="md:p-4 py-2 block hover:text-purple-400" to="/register">Signup</Link>
                         </li>
                         <li>
-                            <a
-                                className="md:p-4 py-2 block hover:text-indigo-400 text-indigo-500"
-                                href="#"
-                            >Sign In</a
-                            >
+                            <Link className="md:p-4 py-2 block hover:text-indigo-400 text-indigo-500" to="/login">Sign In</Link>
                         </li>
                     </ul>
                 </div>
