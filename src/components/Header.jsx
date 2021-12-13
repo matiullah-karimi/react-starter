@@ -19,7 +19,7 @@ export default function Header() {
                     bg-gray-800">
                 <div>
                     <Link to="/" className="text-gray-200">
-                        React Starter Project
+                        Afghan Shoppify
                     </Link>
                 </div>
 
