@@ -43,14 +43,7 @@ export default function Header() {
                 <div className={`w-full md:flex md:items-center md:w-auto ${showMenu ? 'block' : ' hidden'}`} id="menu">
                     <ul className=" pt-4 text-base text-gray-200 md:flex md:justify-between md:pt-0">
                         <li>
-                            <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                            >Features</a
-                            >
-                        </li>
-                        <li>
-                            <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                            >Pricing</a
-                            >
+                            <Link className="md:p-4 py-2 block hover:text-purple-400" to="/shop">Shop</Link>
                         </li>
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-purple-400" to="/contact">Contact</Link>
