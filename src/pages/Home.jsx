@@ -12,7 +12,7 @@ const Home = () => (
             </div>
 
             <div className="flex-1">
-                <img src="/banner.jpg" alt="" srcset="" />
+                <img src="/banner.jpg"/>
             </div>
         </div>
 
