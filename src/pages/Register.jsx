@@ -8,7 +8,7 @@ function Register() {
                 <Input type="text" placeholder="Name"/>
                 <Input type="email" placeholder="Email"/>
                 <Input type="password" placeholder="Password"/>
-                <a className="inline-block py-3 my-2 bg-gray-700 hover:bg-gray-800 text-white text-center rounded-md w-full text-md font-bold" href="/login">Register</a>
+                <a className="btn btn-primary w-full mt-4" href="/login">Register</a>
             </div>
         </div>
     );

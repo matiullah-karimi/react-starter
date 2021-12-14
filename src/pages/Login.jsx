@@ -8,7 +8,7 @@ function Login() {
                 <Input type="email" placeholder="Email"/>
                 <Input type="password" placeholder="Password"/>
                 <a href="#" className="font-semibold text-gray-700 hover:text-gray-900 my-4 self-end">Forgot Passwod</a>
-                <a className="inline-block py-3 bg-gray-700 hover:bg-gray-800 text-white text-center rounded-md w-full text-md font-bold" href="/login">Login</a>
+                <a className="btn btn-primary w-full" href="/login">Login</a>
             </div>
         </div>
     );

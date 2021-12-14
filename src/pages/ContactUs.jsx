@@ -38,7 +38,7 @@ const ContactUs = () => (
                 </div>
 
                 <div className="flex justify-end mt-8">
-                    <button className="inline-block py-3 px-6 bg-gray-700 hover:bg-gray-800 text-white text-center rounded-md text-md font-bold">Submit</button>
+                    <button className="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
