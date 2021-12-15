@@ -6,8 +6,19 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ContactUs from './pages/ContactUs';
 import Shop from './pages/Shop';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setAuthUser } from './redux/user/user.slice';
+import { getAuthUser } from './services/auth.service';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    dispatch(setAuthUser(getAuthUser()));
+  }, []);
+
   return (
     <div className="flex flex-col bg-gray-50">
       <Header />

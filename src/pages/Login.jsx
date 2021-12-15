@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Input from '../components/Input';
-import { login } from '../services/auth.service';
+import { login, persistAuthUser } from '../services/auth.service';
 import LoadingButton from '../components/LoadingButton';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAuthUser } from '../redux/user/user.slice';
 
 const Login = () => {
 
@@ -13,6 +15,7 @@ const Login = () => {
     });
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         return () => {
@@ -32,6 +35,8 @@ const Login = () => {
 
             await login(state.email, state.password);
 
+            dispatch(setAuthUser(state));
+            persistAuthUser(state);
             navigate('/');
         } catch (error) {
             console.error(error);

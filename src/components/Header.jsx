@@ -1,8 +1,19 @@
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from '../services/auth.service';
+import { setAuthUser } from '../redux/user/user.slice';
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState(true);
+    const dispatch = useDispatch();
+
+    const authUser = useSelector((state) => state.authUser.authUser);
+
+    const signout = () => {
+        dispatch(setAuthUser(null));
+        logout();
+    }
 
     return (
         <header className="bg-gray-800">
@@ -48,12 +59,22 @@ export default function Header() {
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-purple-400" to="/contact">Contact</Link>
                         </li>
-                        <li>
-                            <Link className="md:p-4 py-2 block hover:text-purple-400" to="/register">Signup</Link>
-                        </li>
-                        <li>
-                            <Link className="md:p-4 py-2 block hover:text-indigo-400 text-indigo-500" to="/login">Sign In</Link>
-                        </li>
+                        {
+                            authUser && <li>
+                                <a className="md:p-4 py-2 block hover:text-purple-400 cursor-pointer" onClick={signout}>Sign out</a>
+                            </li>
+                        }
+                        {
+                            !authUser &&
+                            <div className="flex">
+                                <li>
+                                    <Link className="md:p-4 py-2 block hover:text-purple-400" to="/register">Signup</Link>
+                                </li>
+                                <li>
+                                    <Link className="md:p-4 py-2 block hover:text-indigo-400 text-indigo-500" to="/login">Sign In</Link>
+                                </li>
+                            </div>
+                        }
                     </ul>
                 </div>
             </nav>
