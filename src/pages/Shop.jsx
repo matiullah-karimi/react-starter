@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../components/Loading";
 import ProductPreview from "../components/ProductPreview";
 import { getProducts } from "../services/products.service";
 
@@ -24,7 +25,9 @@ export default class Shop extends React.Component {
         return (
             <div className="flex flex-col">
                 {
-                    this.state.loading && <h2>Loading...</h2>
+                    this.state.loading && <div className="flex justify-center h-screen">
+                        <Loading className="text-gray-800 w-8 h-8"/>
+                    </div>
                 }
 
                 {
