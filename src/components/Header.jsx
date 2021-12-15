@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from '../services/auth.service';
+import { logout, useAuth } from '../services/auth.service';
 import { setAuthUser } from '../redux/user/user.slice';
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState(true);
     const dispatch = useDispatch();
 
-    const authUser = useSelector((state) => state.authUser.authUser);
+    const authUser = useAuth();
 
     const signout = () => {
         dispatch(setAuthUser(null));
