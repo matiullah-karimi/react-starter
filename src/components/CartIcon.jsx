@@ -1,4 +1,9 @@
-export default function CartIcon({ className, itemsCount = 0 }) {
+import { useSelector } from "react-redux";
+import { selectCartItemsQuantity } from "../redux/cart/cart.slice";
+
+export default function CartIcon({ className }) {
+    const itemsCount = useSelector(selectCartItemsQuantity);
+
     return (
         <div className="relative">
             <svg version="1.1" className={`w-8 h-7 ${className}`} id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
