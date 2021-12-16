@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, useAuth } from '../services/auth.service';
 import { setAuthUser } from '../redux/user/user.slice';
+import CartIcon from "./CartIcon";
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState(true);
@@ -75,6 +76,12 @@ export default function Header() {
                                 </li>
                             </div>
                         }
+
+                        <li>
+                            <a href="#" className="md:p-4 py-2 block hover:text-purple-400">
+                                <CartIcon />
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
