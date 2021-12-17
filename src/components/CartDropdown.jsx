@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectCartItems, selectCartItemsPrice, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
+import useOutsideClickDetector from "../utils/outside-click-detector";
 import CartItem from "./CartItem";
 import CloseIcon from "./CloseIcon";
 
@@ -9,9 +11,13 @@ const CartDropdown = () => {
     const cartItemsPrice = useSelector(selectCartItemsPrice);
 
     const dispatch = useDispatch();
+    const wrapperRef = useRef(null); 
+    useOutsideClickDetector(wrapperRef, () => {
+        dispatch(toggleCartDropdownHidden());
+    });
 
     return (
-        <div className="absolute flex flex-col px-4 py-2 bg-white w-4/12 border border-gray-200 rounded-md right-8 top-12">
+        <div ref={wrapperRef} className="absolute flex flex-col px-4 py-2 bg-white w-4/12 border border-gray-200 rounded-md right-8 top-12">
             <header className="flex justify-between border-b border-gray-200 pb-4">
                 <h2>Shopping Cart</h2>
                 <a onClick={() => dispatch(toggleCartDropdownHidden())} className="cursor-pointer font-semibold">

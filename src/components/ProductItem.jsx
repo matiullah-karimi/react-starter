@@ -24,7 +24,7 @@ const ProductItem = ({ product }) => {
 
                 <div className="absolute bottom-2 flex justify-center gap-x-4 w-full opacity-0 group-hover:opacity-100 transition delay-200 duration-300">
                     <button className="btn btn-primary px-4 py-2 text-sm" onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
-                    <div onClick={() => likeProduct(product)} className="flex justify-center items-center bg-gray-100 px-4 rounded-md cursor-pointer">
+                    <div onClick={() => likeProduct(product)} className="flex justify-center items-center px-4 rounded-md cursor-pointer bg-red-100 hover:bg-red-200">
                         <LikeIcon liked={product.liked} />
                     </div>
                 </div>
