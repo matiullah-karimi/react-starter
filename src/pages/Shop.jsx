@@ -1,39 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Loading from "../components/Loading";
 import ProductPreview from "../components/ProductPreview";
-import { getProducts } from "../services/products.service";
+import { fetchProducts, selectProductsState } from "../redux/product/product.slice";
 
-export default class Shop extends React.Component {
-    constructor() {
-        super();
+const Shop = () => {
+    const dispatch = useDispatch();
+    const productsState = useSelector(selectProductsState);
 
-        this.state = {
-            products: [],
-            loading: false
-        }
-    }
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, []);
 
-    async componentDidMount() {
-        this.setState({loading: true});
+    const { products, loading, error} = productsState;
 
-        const products = await getProducts();
+    return (
+        <div className="flex flex-col">
+            {
+                loading && <div className="flex justify-center h-screen">
+                    <Loading className="text-gray-800 w-8 h-8" />
+                </div>
+            }
 
-        this.setState({ products, loading: false });
-    }
-
-    render() {
-        return (
-            <div className="flex flex-col">
-                {
-                    this.state.loading && <div className="flex justify-center h-screen">
-                        <Loading className="text-gray-800 w-8 h-8"/>
-                    </div>
-                }
-
-                {
-                    this.state.products.length > 0 && <ProductPreview title="Shop   " products={this.state.products}/>
-                }
-            </div>
-        );
-    }
+            {
+                products.length > 0 && <ProductPreview title="Shop" products={products} />
+            }
+        </div>
+    );
 }
+
+export default Shop;
