@@ -79,11 +79,14 @@ export default function Header() {
                             </div>
                         }
 
-                        <li>
-                            <a onClick={() => dispatch(toggleCartDropdownHidden())} className="md:p-4 py-2 block hover:text-purple-400 cursor-pointer">
-                                <CartIcon />
-                            </a>
-                        </li>
+                        {
+                            authUser && 
+                            <li>
+                                <a onClick={() => dispatch(toggleCartDropdownHidden())} className="md:p-4 py-2 block hover:text-purple-400 cursor-pointer">
+                                    <CartIcon />
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 {

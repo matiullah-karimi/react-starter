@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectCartItems, selectCartItemsPrice, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
 import CartItem from "./CartItem";
+import CloseIcon from "./CloseIcon";
 
 const CartDropdown = () => {
     const cartItems = useSelector(selectCartItems);
@@ -13,7 +14,9 @@ const CartDropdown = () => {
         <div className="absolute flex flex-col px-4 py-2 bg-white w-4/12 border border-gray-200 rounded-md right-8 top-12">
             <header className="flex justify-between border-b border-gray-200 pb-4">
                 <h2>Shopping Cart</h2>
-                <a onClick={() => dispatch(toggleCartDropdownHidden())} className="cursor-pointer font-semibold">X</a>
+                <a onClick={() => dispatch(toggleCartDropdownHidden())} className="cursor-pointer font-semibold">
+                    <CloseIcon />
+                </a>
             </header>
 
             <div className="flex flex-col bg-white h-72 overflow-y-scroll text-base">
