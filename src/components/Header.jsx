@@ -1,15 +1,17 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, useAuth } from '../services/auth.service';
 import { setAuthUser } from '../redux/user/user.slice';
 import CartIcon from "./CartIcon";
+import CartDropdown from "./CartDropdown";
+import { selectCartDropdownHidden, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
 
 export default function Header() {
     const [showMenu, setShowMenu] = useState(true);
     const dispatch = useDispatch();
-
     const authUser = useAuth();
+    const dropdownHidden = useSelector(selectCartDropdownHidden);
 
     const signout = () => {
         dispatch(setAuthUser(null));
@@ -78,12 +80,15 @@ export default function Header() {
                         }
 
                         <li>
-                            <a href="#" className="md:p-4 py-2 block hover:text-purple-400">
+                            <a onClick={() => dispatch(toggleCartDropdownHidden())} className="md:p-4 py-2 block hover:text-purple-400 cursor-pointer">
                                 <CartIcon />
                             </a>
                         </li>
                     </ul>
                 </div>
+                {
+                    !dropdownHidden && <CartDropdown />
+                }
             </nav>
         </header>
     )

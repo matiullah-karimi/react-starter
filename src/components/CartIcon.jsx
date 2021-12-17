@@ -26,10 +26,11 @@ export default function CartIcon({ className }) {
                     L87.504,105.927h260.301L311.17,254.33z"/>
                 </g>
             </svg>
-            <span htmlFor="" className="absolute text-white" style={{
+            <span className="absolute text-white" style={{
                 top: 2,
-                left: 15,
-                fontSize: 10  
+                left: 13,
+                fontSize: 10,
+                textAlign: 'center' 
             }}> { itemsCount } </span>
         </div>
     );
