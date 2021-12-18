@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectCartItems, selectCartItemsPrice, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
 import useOutsideClickDetector from "../utils/outside-click-detector";
 import CartItem from "./CartItem";
@@ -11,10 +12,17 @@ const CartDropdown = () => {
     const cartItemsPrice = useSelector(selectCartItemsPrice);
 
     const dispatch = useDispatch();
-    const wrapperRef = useRef(null); 
+    const wrapperRef = useRef(null);
+    const navigate = useNavigate();
+
     useOutsideClickDetector(wrapperRef, () => {
         dispatch(toggleCartDropdownHidden());
     });
+
+    const goToPage = (page) => {
+        dispatch(toggleCartDropdownHidden());
+        navigate(page);
+    }
 
     return (
         <div ref={wrapperRef} className="absolute flex flex-col px-4 py-2 bg-white w-4/12 border border-gray-200 rounded-md right-8 top-12">
@@ -41,12 +49,7 @@ const CartDropdown = () => {
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div className="mt-6">
-                    <a href="#" className="btn btn-primary w-full">Checkout</a>
-                </div>
-                <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
-                    <p>
-                        or <button type="button" className="text-indigo-600 font-medium hover:text-indigo-500" click="open = false">Continue Shopping<span aria-hidden="true"> →</span></button>
-                    </p>
+                    <a className="btn btn-primary w-full cursor-pointer" onClick={() => goToPage('/checkout')}>Checkout</a>
                 </div>
             </footer>
         </div>
