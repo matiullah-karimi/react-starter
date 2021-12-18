@@ -6,7 +6,7 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch();
 
     return(
-        <div className="grid grid-cols-10 gap-4 border-b border-gray-200 py-4">
+        <div className="grid grid-cols-10 gap-4 border-b border-gray-200 py-4 px-2">
             <div className="col-span-2 flex justify-center">
                 <img className="h-24 rounded" src={item.image} alt={item.title} />
             </div>
