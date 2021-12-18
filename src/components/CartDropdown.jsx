@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { selectCartItems, selectCartItemsPrice, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
 import useOutsideClickDetector from "../utils/outside-click-detector";
 import CartItem from "./CartItem";
-import CloseIcon from "./CloseIcon";
+import CloseIcon from "./icons/CloseIcon";
 
 const CartDropdown = () => {
     const cartItems = useSelector(selectCartItems);

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../redux/cart/cart.slice";
-import TrashIcon from "./TrashIcon";
+import TrashIcon from "./icons/TrashIcon";
 
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();

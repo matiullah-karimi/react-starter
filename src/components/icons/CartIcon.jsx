@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectCartItemsQuantity } from "../redux/cart/cart.slice";
+import { selectCartItemsQuantity } from "../../redux/cart/cart.slice";
 
 export default function CartIcon({ className }) {
     const itemsCount = useSelector(selectCartItemsQuantity);

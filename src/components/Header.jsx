@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, useAuth } from '../services/auth.service';
 import { setAuthUser } from '../redux/user/user.slice';
-import CartIcon from "./CartIcon";
+import CartIcon from "./icons/CartIcon";
 import CartDropdown from "./CartDropdown";
 import { selectCartDropdownHidden, toggleCartDropdownHidden } from "../redux/cart/cart.slice";
 
