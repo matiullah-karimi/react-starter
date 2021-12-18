@@ -1,4 +1,4 @@
-import TrendingProducts from "../components/TrendingProducts";
+import TrendingProducts from "../components/product/TrendingProducts";
 
 const Home = () => (
     <div className="container flex flex-col">

@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart } from "../redux/cart/cart.slice";
-import { toggleLiked } from "../redux/product/product.slice";
-import { toggleWishlistItem } from "../redux/wishlist/wishlist.slice";
-import LikeIcon from "./icons/LikeIcon";
+import { addToCart } from "../../redux/cart/cart.slice";
+import { toggleLiked } from "../../redux/product/product.slice";
+import { toggleWishlistItem } from "../../redux/wishlist/wishlist.slice";
+import LikeIcon from "../icons/LikeIcon";
 
 const ProductItem = ({ product }) => {
     const dispatch = useDispatch();

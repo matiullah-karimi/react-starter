@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Loading from "../components/Loading";
-import ProductPreview from "../components/ProductPreview";
+import ProductPreview from "../components/product/ProductPreview";
 import { fetchProducts, selectProductsState } from "../redux/product/product.slice";
 
 const Shop = () => {

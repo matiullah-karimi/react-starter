@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProducts } from '../services/products.service';
+import { getProducts } from '../../services/products.service';
 import ProductPreview from './ProductPreview';
 
 export default class TrendingProducts extends React.Component {
