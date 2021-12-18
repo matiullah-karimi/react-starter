@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../redux/cart/cart.slice";
+import TrashIcon from "./TrashIcon";
 
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();
@@ -9,17 +10,19 @@ const CartItem = ({ item }) => {
             <div className="col-span-2 flex justify-center">
                 <img className="h-24 rounded" src={item.image} alt={item.title} />
             </div>
-            <div className="col-span-8 flex flex-col w-full px-2">
-                <div className="flex justify-between font-medium text-base gap-2">
-                    <h4 className="w-64 truncate font-semibold">{ item.title }</h4>
-                    <h4>${ item.price }</h4>
+            <div className="col-span-8 flex flex-col w-full px-2 text-sm">
+                <div className="flex justify-between font-medium gap-2">
+                    <span className="w-64 truncate">{ item.title }</span>
+                    <a onClick={() => dispatch(removeFromCart(item))} className="text-indigo-800 cursor-pointer">
+                        <TrashIcon />
+                    </a>
                 </div>
                 <div>
-                    <span className="text-gray-400">{ item.category }</span>
+                    <span className="text-gray-400 capitalize">{ item.category }</span>
                 </div>
                 <div className="flex justify-between mt-4">
+                    <span>${ item.price }</span>
                     <span className="text-gray-400">Qty: { item.quantity }</span>
-                    <a onClick={() => dispatch(removeFromCart(item))} className="text-indigo-800 font-semibold text-sm cursor-pointer">Remove</a>
                 </div>
             </div>
         </div>
