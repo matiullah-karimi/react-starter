@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { logout, useAuth } from '../../services/auth.service';
 import { setAuthUser } from '../../redux/user/user.slice';
 import CartIcon from "../icons/CartIcon";
-import CartDropdown from "../CartDropdown";
+import CartDropdown from "../cart/CartDropdown";
 import { selectCartDropdownHidden, toggleCartDropdownHidden } from "../../redux/cart/cart.slice";
 
 export default function Header() {

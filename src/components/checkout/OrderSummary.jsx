@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CartItem from "../CartItem";
+import CartItem from "../cart/CartItem";
 import { selectCartItems } from "../../redux/cart/cart.slice";
 
 const OrderSummary = () => {
