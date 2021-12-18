@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { setAuthUser } from './redux/user/user.slice';
 import { getAuthUser, RequireAuth } from './services/auth.service';
 import Profile from './pages/Profile';
+import Checkout from './pages/Checkout';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
               <Profile />
             </RequireAuth>
           } />
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
       <Footer/>
