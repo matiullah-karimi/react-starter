@@ -13,6 +13,7 @@ import { getAuthUser, RequireAuth } from './services/auth.service';
 import Profile from './pages/Profile';
 import Checkout from './pages/Checkout';
 import ProductDetails from './pages/ProductDetails';
+import PageNotFound from './pages/errors/PageNotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
             </RequireAuth>
           } />
           <Route exact path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
       <Footer/>
