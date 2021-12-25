@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getProducts } from '../../services/products.service';
+import { getProducts, getProduct } from '../../services/products.service';
 
 const initialState = {
     products: [],
     loading: true,
-    error: null
+    error: null,
+    product: null
 }
 
 export const productSlice = createSlice({
@@ -16,7 +17,7 @@ export const productSlice = createSlice({
             state.loading = true
         },
 
-        fetchProductComplete: (state, action) => {
+        fetchProductsComplete: (state, action) => {
             state.products = action.payload.map(p => ({...p, liked: false}));
             state.loading = false
         },
@@ -28,17 +29,45 @@ export const productSlice = createSlice({
 
         toggleLiked: (state, action) => {
             state.products = state.products.map(p => p.id === action.payload.id ? ({...p, liked: !p.liked }) : p);
+        },
+
+        fetchProductDetails: (state, action) => {
+           state.product = action.payload;
+           state.loading = false;
+           state.error = null;
         }
     },
 })
 
+/**
+ * Fetch collection of products
+ * 
+ * @returns List of products
+ */
 export const fetchProducts = () => async (dispatch) => {
     try {
         dispatch(fetchProductStart());
 
         const response = await getProducts();
 
-        dispatch(fetchProductComplete(response))
+        dispatch(fetchProductsComplete(response))
+    } catch (error) {
+        dispatch(fetchProductError(error));
+    }
+}
+
+/**
+ * Fetch a single product
+ * 
+ * @returns a single product
+ */
+ export const fetchProduct = (id) => async (dispatch) => {
+    try {
+        dispatch(fetchProductStart());
+
+        const response = await getProduct(id);
+
+        dispatch(fetchProductDetails(response))
     } catch (error) {
         dispatch(fetchProductError(error));
     }
@@ -46,8 +75,8 @@ export const fetchProducts = () => async (dispatch) => {
 
 // Action creators are generated for each case reducer function
 export const { 
-    getAll, fetchProductStart, fetchProductComplete, fetchProductError,
-    toggleLiked
+    fetchProductStart, fetchProductsComplete, fetchProductError,
+    toggleLiked, fetchProductDetails
 } = productSlice.actions
 
 export default productSlice.reducer

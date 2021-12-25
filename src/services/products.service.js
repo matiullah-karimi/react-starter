@@ -3,3 +3,9 @@ export const getProducts = async () => {
 
     return await rawData.json();
 }
+
+export const getProduct = async (id) => {
+    const rawData = await fetch('https://fakestoreapi.com/products/' + id);
+
+    return await rawData.json();
+}

@@ -32,7 +32,7 @@ const ProductItem = ({ product }) => {
             <div className="mt-4 flex justify-between">
                 <div>
                     <h3 className="text-sm text-gray-700">
-                        <Link to={`products/${product.id}`}>
+                        <Link to={`shop/${product.id}`}>
                             {product.title}
                         </Link>
                     </h3>

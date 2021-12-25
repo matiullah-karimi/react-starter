@@ -12,6 +12,7 @@ import { setAuthUser } from './redux/user/user.slice';
 import { getAuthUser, RequireAuth } from './services/auth.service';
 import Profile from './pages/Profile';
 import Checkout from './pages/Checkout';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/contact" element={<ContactUs />} />
           <Route exact path="/shop" element={<Shop />} />
+          <Route exact path="/shop/:product" element={<ProductDetails />} />
           <Route exact path="/profile" element={
             <RequireAuth>
               <Profile />
